@@ -5,9 +5,17 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+/* Импорты хуков */
+import { useSound }   from '../../hooks/useSound'
+import { useVibrate } from '../../hooks/useVibrate'
+
 import styles from './ServiceModal.module.css'
 
 function ServiceModal({ service, onClose, onRequest }) {
+
+    const { playThunder } = useSound()
+    const { vibrateThunder } = useVibrate()
+
     /* Ответы на уточняющие вопросы */
     const [answers, setAnswers] = useState({})
 
@@ -90,7 +98,13 @@ function ServiceModal({ service, onClose, onRequest }) {
                 </div>
 
                 {/* Кнопка запроса */}
-                <button className={styles.requestBtn} onClick={handleRequest}>
+                <button className={styles.requestBtn}
+                    onClick={() => {
+                        playThunder()
+                        vibrateThunder()
+                        handleRequest()
+                    }}
+                >
                     Jetzt anfragen ⚡
                 </button>
 

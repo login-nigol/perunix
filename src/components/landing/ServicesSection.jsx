@@ -6,6 +6,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useService } from '../../context/ServiceContext'
+/* Импорты хуков */
+import { useSound } from '../../hooks/useSound'
+import { useVibrate } from '../../hooks/useVibrate'
 
 import styles from './ServicesSection.module.css'
 /* Импорт модалки */
@@ -135,6 +138,9 @@ function ServicesSection() {
     /* Контекст — сохраняем выбранную услугу */
     const { setSelectedService } = useService()
 
+    const { playClick } = useSound()
+    const { vibrateClick } = useVibrate()
+
     /* Открытая модалка — null или объект услуги */
     const [activeService, setActiveService] = useState(null)
 
@@ -187,7 +193,11 @@ function ServicesSection() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             /* Hover анимация */
                             whileHover={{ y: -6 }}
-                            onClick={() => handleCardClick(service)}
+                            onClick={() => {
+                                playClick()
+                                vibrateClick()
+                                handleCardClick(service)
+                            }}
                         >
                             {/* Иконка */}
                             <div className={styles.cardIcon}>{service.icon}</div>
