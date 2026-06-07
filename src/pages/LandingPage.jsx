@@ -13,6 +13,7 @@ import ContactSection from '../components/landing/ContactSection'
 import Footer from '../components/landing/Footer'
 
 import styles from './LandingPage.module.css'
+import Bug from '../components/ui/Bug'
 
 function LandingPage() {
     return (
@@ -21,6 +22,8 @@ function LandingPage() {
 
             {/* Анимированный фон — молнии, частицы, код */}
             <LightningCanvas />
+
+            <Bug />
 
             {/* Навигация поверх всего */}
             <Navbar />
