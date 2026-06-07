@@ -106,17 +106,6 @@ function HeroSection() {
 
                 </motion.div>
 
-                {/* Скролл индикатор */}
-                <motion.div
-                    {...fadeUp(1.1)}
-                    className={styles.scrollIndicator}
-                    /* Бесконечная анимация вверх-вниз */
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                    ↓
-                </motion.div>
-
             </div>
         </section>
     )

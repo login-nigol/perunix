@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0em 0.5em 5em;
+  padding: 0em 0.5em 0em;
   /* Лёгкий градиент снизу — плавный переход к следующей секции */
   background: linear-gradient(
     to bottom,
@@ -151,15 +151,6 @@
   width: 0.05em;
   height: 3em;
   background-color: var(--clr-border);
-}
-
-/* ===================== СКРОЛЛ ИНДИКАТОР ===================== */
-/* Стрелка вниз — анимируется бесконечно */
-.scrollIndicator {
-  font-size: 1.5em;
-  color: var(--clr-muted);
-  margin-top: 1em;
-  opacity: 0.5;
 }
 
 /* ===================== АДАПТИВ ===================== */

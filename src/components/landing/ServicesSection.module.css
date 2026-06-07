@@ -1,0 +1,124 @@
+/* ===================== SERVICES SECTION ===================== */
+/* Компонент: ServicesSection.jsx                              */
+
+/* Секция на жемчужном фоне */
+.services {
+  padding: 0.5em 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 0.5em;
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.sectionTitle {
+  font-size: clamp(1.75em, 4vw, 3em);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: var(--clr-text);
+}
+
+/* Золотой акцент */
+.accent {
+  color: var(--clr-gold);
+}
+
+/* ===================== ПОДЗАГОЛОВОК ===================== */
+.sectionSubtitle {
+  font-size: clamp(1.2em, 2vw, 1.4em);
+  color: var(--clr-muted);
+  text-align: center;
+  max-width: 36em;
+  margin: 0 auto 1em;
+  line-height: 1.8;
+}
+
+/* ===================== СЕТКА КАРТОЧЕК ===================== */
+/* 3 колонки на десктопе, 2 на планшете, 1 на мобилке */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  gap: 1.5em;
+}
+
+/* ===================== КАРТОЧКА ===================== */
+.card {
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.8em; */
+  cursor: pointer;
+  transition: var(--transition);
+  /* Карточка меньше основного контейнера — отступы создают глубину */
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.05);
+}
+
+/* Hover — золотая рамка */
+.card:hover {
+  border-color: var(--clr-gold);
+  box-shadow: 0 0.5em 2em rgba(201, 168, 76, 0.15);
+}
+
+/* ===================== ИКОНКА ===================== */
+.cardIcon {
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1;
+}
+
+/* ===================== НАЗВАНИЕ ===================== */
+.cardTitle {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+/* ===================== КОРОТКОЕ ОПИСАНИЕ ===================== */
+.cardShort {
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--clr-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ===================== КНОПКА НА КАРТОЧКЕ ===================== */
+.cardBtn {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--clr-gold);
+  padding: 0;
+  margin-top: 0.5em;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.cardBtn:hover {
+  color: var(--clr-gold-dark);
+  letter-spacing: 0.03em;
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 0.5em;
+  }
+
+  .modal {
+    padding: 1em;
+  }
+}

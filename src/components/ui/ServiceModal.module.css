@@ -1,0 +1,196 @@
+/* ===================== SERVICE MODAL ===================== */
+/* Компонент: ServiceModal.jsx                              */
+
+/* Затемнённый оверлей на весь экран */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.3em);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5em;
+  padding-top: 5em;
+
+}
+
+/* Модалка */
+.modal {
+  background-color: var(--clr-bg);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 2em;
+  max-width: 36em;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  box-shadow: 0 1em 4em rgba(0, 0, 0, 0.2);
+}
+
+/* Шапка модалки */
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+/* Иконка */
+.modalIcon {
+  font-size: 2em;
+  flex-shrink: 0;
+}
+
+/* Название */
+.modalTitle {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+/* Короткое описание */
+.modalShort {
+  font-size: 1.1em;
+  color: var(--clr-muted);
+  margin-top: 0.2em;
+}
+
+/* Кнопка закрытия */
+.closeBtn {
+  margin-left: auto;
+  font-size: 1.4em;
+  color: var(--clr-muted);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.closeBtn:hover {
+  color: var(--clr-text);
+}
+
+/* Описание услуги */
+.modalDescription {
+  font-size: 1.1em;
+  color: var(--clr-muted);
+  line-height: 1.8;
+}
+
+/* Блок что входит */
+.includesBlock {
+  background-color: var(--clr-surface);
+  border-radius: var(--radius-card);
+  padding: 1.2em;
+}
+
+.includesTitle {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin-bottom: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.includesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.includesItem {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: 1.1em;
+  color: var(--clr-muted);
+}
+
+/* Галочка */
+.check {
+  color: var(--clr-gold);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Блок вопросов */
+.questionsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.questionsTitle {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--clr-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Одно поле вопроса */
+.questionField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* Лейбл вопроса */
+.questionLabel {
+  font-size: 1.1em;
+  color: var(--clr-muted);
+}
+
+/* Селект */
+.questionSelect {
+  width: 100%;
+  max-width: calc(100% - 2em);
+  /* box-sizing: border-box; */
+
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-btn);
+  color: var(--clr-text);
+  font-family: inherit;
+  font-size: 1.1em;
+  padding: 0.4em 1em;
+  /* line-height: 2.5em; */
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  appearance: none;
+}
+
+.questionSelect:focus {
+  border-color: var(--clr-gold);
+}
+
+/* Кнопка запроса */
+.requestBtn {
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.4em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  width: 100%;
+  transition: var(--transition);
+  margin-top: 0.5em;
+}
+
+.requestBtn:hover {
+  background-color: var(--clr-gold-dark);
+  transform: translateY(-0.1em);
+}
+
+/* Адаптив */
+@media (max-width: 48em) {
+  .modal {
+    padding: 1em;
+  }
+}
