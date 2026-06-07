@@ -1,0 +1,182 @@
+/* ===================== HERO SECTION ===================== */
+/* Компонент: HeroSection.jsx                              */
+
+/* Секция на весь экран — центрируем контент */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0em 0.5em 5em;
+  /* Лёгкий градиент снизу — плавный переход к следующей секции */
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(239, 236, 234, 0.8) 100%
+  );
+  /* Поверх canvas */
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+/* Ограничиваем ширину контента */
+.container {
+  max-width: 50em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+/* ===================== BADGE ===================== */
+/* Лейбл над заголовком */
+.badge {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--clr-blue);
+  background-color: rgba(74, 144, 217, 0.08);
+  border: 0.05em solid rgba(74, 144, 217, 0.2);
+  border-radius: 2em;
+  padding: 0.5em 1.4em;
+  letter-spacing: 0.03em;
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.title {
+  font-size: clamp(3em, 8vw, 6em);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--clr-text);
+}
+
+/* Золотой акцент в заголовке */
+.accent {
+  color: var(--clr-gold);
+  /* Лёгкая тень для глубины */
+  text-shadow: 0 0 2em rgba(201, 168, 76, 0.3);
+}
+
+/* ===================== ПОДЗАГОЛОВОК ===================== */
+.subtitle {
+  font-size: clamp(1em, 2vw, 1.2em);
+  color: var(--clr-muted);
+  max-width: 36em;
+  line-height: 1.8;
+}
+
+/* ===================== КНОПКИ ===================== */
+.buttons {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+/* Главная кнопка — золотая */
+.btnPrimary {
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.9em 2.2em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  box-shadow: 0 0.3em 1.5em rgba(201, 168, 76, 0.3);
+}
+
+.btnPrimary:hover {
+  background-color: var(--clr-gold-dark);
+  transform: translateY(-0.15em);
+  box-shadow: 0 0.5em 2em rgba(201, 168, 76, 0.4);
+}
+
+/* Вторичная кнопка — голубая рамка */
+.btnSecondary {
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.9em 2.2em;
+  border-radius: var(--radius-btn);
+  border: 0.05em solid var(--clr-blue);
+  color: var(--clr-blue);
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+}
+
+.btnSecondary:hover {
+  background-color: var(--clr-blue);
+  color: #fff;
+  transform: translateY(-0.15em);
+}
+
+/* ===================== СТАТИСТИКА ===================== */
+/* Строка с цифрами для доверия */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 2.5em;
+  margin-top: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Один блок статистики */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+}
+
+/* Цифра */
+.statNumber {
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--clr-gold);
+}
+
+/* Подпись */
+.statLabel {
+  font-size: 0.8em;
+  color: var(--clr-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Вертикальный разделитель */
+.statDivider {
+  width: 0.05em;
+  height: 3em;
+  background-color: var(--clr-border);
+}
+
+/* ===================== СКРОЛЛ ИНДИКАТОР ===================== */
+/* Стрелка вниз — анимируется бесконечно */
+.scrollIndicator {
+  font-size: 1.5em;
+  color: var(--clr-muted);
+  margin-top: 1em;
+  opacity: 0.5;
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  /* На мобилке скрываем разделители статистики */
+  .statDivider {
+    display: none;
+  }
+
+  /* Кнопки на всю ширину */
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    text-align: center;
+  }
+}
