@@ -1,0 +1,24 @@
+/* ===================== LANDING PAGE ===================== */
+/* Обёртка всей страницы                                   */
+
+.page {
+  /* Relative чтобы fixed canvas был относительно страницы */
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--clr-bg);
+}
+
+/* Контент поверх канваса */
+.main {
+  position: relative;
+  /* Выше канваса (z-index: 0) */
+  z-index: 1;
+
+  /* Отступ под фиксированный navbar */
+  padding-top: 5em;
+
+  /* Отступы между секциями */
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
