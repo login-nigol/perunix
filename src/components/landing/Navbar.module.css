@@ -1,0 +1,187 @@
+/* ===================== NAVBAR ===================== */
+/* Компонент: Navbar.jsx                             */
+
+/* Фиксированная навигация поверх всего */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.8em 0;
+  transition: var(--transition);
+}
+
+/* Фон появляется после скролла */
+.scrolled {
+  background-color: rgba(248, 246, 240, 0.92);
+  backdrop-filter: blur(0.6em);
+  border-bottom: 0.05em solid var(--clr-border);
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.06);
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===================== ЛОГОТИП ===================== */
+.logo {
+  font-size: 1.5em;
+  font-weight: 800;
+  color: var(--clr-text);
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+/* Золотой акцент IX */
+.accent {
+  color: var(--clr-gold);
+}
+
+/* ===================== ДЕСКТОПНОЕ МЕНЮ ===================== */
+.nav {
+  display: flex;
+  gap: 2em;
+}
+
+/* Ссылка навигации */
+.navLink {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--clr-muted);
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Подчёркивание при hover — золотое */
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2em;
+  left: 0;
+  width: 0;
+  height: 0.05em;
+  background-color: var(--clr-gold);
+  transition: var(--transition);
+}
+
+.navLink:hover {
+  color: var(--clr-text);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* ===================== CTA КНОПКА ===================== */
+.cta {
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.6em 1.4em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+}
+
+.cta:hover {
+  background-color: var(--clr-gold-dark);
+  transform: translateY(-0.1em);
+}
+
+/* ===================== БУРГЕР ===================== */
+/* Показываем только на мобилке */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 0.35em;
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+/* Одна линия бургера */
+.burgerLine {
+  display: block;
+  width: 1.5em;
+  height: 0.12em;
+  background-color: var(--clr-text);
+  border-radius: 0.1em;
+  transition: var(--transition);
+}
+
+/* Анимация бургера в крестик */
+.burgerLine.open:nth-child(1) {
+  transform: translateY(0.47em) rotate(45deg);
+}
+
+.burgerLine.open:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerLine.open:nth-child(3) {
+  transform: translateY(-0.47em) rotate(-45deg);
+}
+
+/* ===================== МОБИЛЬНОЕ МЕНЮ ===================== */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1.5em 1.5em;
+  gap: 0.2em;
+  background-color: rgba(248, 246, 240, 0.98);
+  border-top: 0.05em solid var(--clr-border);
+}
+
+/* Ссылка в мобильном меню */
+.mobileLink {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--clr-muted);
+  padding: 0.8em 0;
+  border-bottom: 0.05em solid var(--clr-border);
+  transition: var(--transition);
+}
+
+.mobileLink:hover {
+  color: var(--clr-text);
+  padding-left: 0.5em;
+}
+
+/* CTA в мобильном меню */
+.mobileCta {
+  margin-top: 0.8em;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0.9em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.mobileCta:hover {
+  background-color: var(--clr-gold-dark);
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  /* Скрываем десктопное меню и CTA */
+  .nav { display: none; }
+  .cta { display: none; }
+
+  /* Показываем бургер */
+  .burger { display: flex; }
+}
