@@ -9,10 +9,10 @@ import styles from './Bug.module.css'
 
 /* ===================== КОНСТАНТЫ ===================== */
 /* Скорость передвижения жука в пикселях за кадр */
-const SPEED = 1.5
+const SPEED = 0.8
 
 /* Расстояние от курсора при котором жук убегает */
-const FLEE_RADIUS = 120
+const FLEE_RADIUS = 100
 
 /* Интервал между сменой направления (мс) */
 const DIRECTION_CHANGE = 3000

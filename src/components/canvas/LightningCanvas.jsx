@@ -13,10 +13,10 @@ const CONFIG = {
     LINES_COUNT: 40,
 
     /* Количество летающих частиц-искр */
-    PARTICLES_COUNT: 50,
+    PARTICLES_COUNT: 0,
 
     /* Количество молний одновременно на экране */
-    LIGHTNING_COUNT: 8,
+    LIGHTNING_COUNT: 5,
 
     /* Скорость движения частиц */
     PARTICLE_SPEED: 0.4,

@@ -33,19 +33,19 @@
 /* ===================== BADGE ===================== */
 /* Лейбл над заголовком */
 .badge {
-  font-size: 0.85em;
-  font-weight: 500;
+  font-size: 0.95em;
+  font-weight: 600;
   color: var(--clr-blue);
   background-color: rgba(74, 144, 217, 0.08);
   border: 0.05em solid rgba(74, 144, 217, 0.2);
   border-radius: 2em;
-  padding: 0.5em 1.4em;
+  padding: 0.3em 1em;
   letter-spacing: 0.03em;
 }
 
 /* ===================== ЗАГОЛОВОК ===================== */
 .title {
-  font-size: clamp(3em, 8vw, 6em);
+  font-size: clamp(2.5em, 6vw, 4em);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -61,7 +61,7 @@
 
 /* ===================== ПОДЗАГОЛОВОК ===================== */
 .subtitle {
-  font-size: clamp(1em, 2vw, 1.2em);
+  font-size: clamp(1.2em, 2vw, 1.4em);
   color: var(--clr-muted);
   max-width: 36em;
   line-height: 1.8;
@@ -78,9 +78,9 @@
 
 /* Главная кнопка — золотая */
 .btnPrimary {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 700;
-  padding: 0.9em 2.2em;
+  padding: 0.4em 1.2em;
   border-radius: var(--radius-btn);
   background-color: var(--clr-gold);
   color: #fff;
@@ -97,9 +97,9 @@
 
 /* Вторичная кнопка — голубая рамка */
 .btnSecondary {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 600;
-  padding: 0.9em 2.2em;
+  padding: 0.4em 1.2em;
   border-radius: var(--radius-btn);
   border: 0.05em solid var(--clr-blue);
   color: var(--clr-blue);
@@ -141,7 +141,7 @@
 
 /* Подпись */
 .statLabel {
-  font-size: 0.8em;
+  font-size: 0.9em;
   color: var(--clr-muted);
   letter-spacing: 0.03em;
 }
@@ -164,6 +164,14 @@
 
 /* ===================== АДАПТИВ ===================== */
 @media (max-width: 48em) {
+  .stats {
+    gap: 1em;
+  }
+
+  .statNumber {
+    font-size: 1.5em;
+  }
+
   /* На мобилке скрываем разделители статистики */
   .statDivider {
     display: none;
@@ -172,7 +180,7 @@
   /* Кнопки на всю ширину */
   .buttons {
     flex-direction: column;
-    width: 100%;
+    width: 80%;
   }
 
   .btnPrimary,
