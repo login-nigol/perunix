@@ -1,0 +1,250 @@
+/* ===================== CONTACT SECTION ===================== */
+/* Компонент: ContactSection.jsx                              */
+
+.contact {
+  padding: 3em 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.sectionTitle {
+  font-size: clamp(1.75em, 4vw, 3em);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: var(--clr-text);
+}
+
+.accent { color: var(--clr-gold); }
+
+/* ===================== ПОДЗАГОЛОВОК ===================== */
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--clr-muted);
+  text-align: center;
+  max-width: 36em;
+  margin: 0 auto 3em;
+  line-height: 1.8;
+}
+
+/* ===================== ДВУХКОЛОНОЧНЫЙ LAYOUT ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+  align-items: start;
+}
+
+/* ===================== ФОРМА ===================== */
+.formWrapper {
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 2em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+/* Поле формы */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* Лейбл */
+.label {
+  font-size: 1em;
+  color: var(--clr-muted);
+  font-weight: 500;
+}
+
+/* Индикатор автозаполнения */
+.autoFilled {
+  color: var(--clr-gold);
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+/* Инпуты */
+.input,
+.select,
+.textarea {
+  background-color: var(--clr-surface-2);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-btn);
+  color: var(--clr-text);
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.8em 1em;
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--clr-gold);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--clr-muted);
+  opacity: 0.5;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 7em;
+}
+
+/* Кнопка отправки */
+.submitBtn {
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0.8em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  width: 100%;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  margin-top: 0.5em;
+}
+
+.submitBtn:hover {
+  background-color: var(--clr-gold-dark);
+  transform: translateY(-0.1em);
+}
+
+/* ===================== УСПЕШНАЯ ОТПРАВКА ===================== */
+.successMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 3em 1em;
+  text-align: center;
+  min-height: 20em;
+}
+
+.successIcon {
+  font-size: 3em;
+}
+
+.successMsg h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.successMsg p {
+  font-size: 1.1em;
+  color: var(--clr-muted);
+}
+
+/* ===================== КОНТАКТНЫЕ КАРТОЧКИ ===================== */
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 1.2em 1.5em;
+  transition: var(--transition);
+}
+
+.infoCard:hover {
+  border-color: var(--clr-gold);
+}
+
+.infoIcon {
+  font-size: 1.8em;
+  flex-shrink: 0;
+}
+
+.infoText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.infoLabel {
+  font-size: 0.8em;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoValue {
+  font-size: 1em;
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+/* ===================== WHATSAPP ===================== */
+.whatsapp {
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+}
+
+.whatsappText {
+  font-size: 1em;
+  color: var(--clr-muted);
+}
+
+.whatsappBtn {
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0.7em 2em;
+  border-radius: var(--radius-btn);
+  background-color: #25D366;
+  color: #fff;
+  transition: var(--transition);
+}
+
+.whatsappBtn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-0.1em);
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
