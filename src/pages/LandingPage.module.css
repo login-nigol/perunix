@@ -15,10 +15,10 @@
   z-index: 1;
 
   /* Отступ под фиксированный navbar */
-  padding-top: var(--navbar-height, 4em);
+  padding-top: 3em;
 
   /* Отступы между секциями */
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  /* gap: 2em; */
 }

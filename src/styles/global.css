@@ -36,7 +36,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: var(--navbar-height, 4em);
+  scroll-padding-top: 3em;
 }
 
 body {
@@ -62,4 +62,9 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+/* ===================== РАЗДЕЛИТЕЛЬ СЕКЦИЙ ===================== */
+section + section {
+  border-top: 0.05em solid var(--clr-blue);
 }

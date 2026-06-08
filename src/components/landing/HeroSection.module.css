@@ -3,12 +3,12 @@
 
 /* Секция на весь экран — центрируем контент */
 .hero {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1em 0.5em 1em;
+  padding: 2em 0.5em 2em;
   /* padding-top: 4em; */
   /* Лёгкий градиент снизу — плавный переход к следующей секции */
   background: linear-gradient(
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5em;
+  gap: 2em;
 }
 
 /* ===================== BADGE ===================== */
@@ -98,9 +98,9 @@
 
 /* Вторичная кнопка — голубая рамка */
 .btnSecondary {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 600;
-  padding: 0.4em 1.2em;
+  padding: 0.4em 0.8em;
   border-radius: var(--radius-btn);
   border: 0.05em solid var(--clr-blue);
   color: var(--clr-blue);
@@ -120,7 +120,7 @@
   display: flex;
   align-items: center;
   gap: 2.5em;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -130,7 +130,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3em;
+  /* gap: 0.3em; */
 }
 
 /* Цифра */

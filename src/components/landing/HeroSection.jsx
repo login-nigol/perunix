@@ -77,7 +77,7 @@ function HeroSection() {
                         className={styles.btnSecondary}
                         onClick={handleCta}
                     >
-                        View Our Work
+                        Unsere Projekte ansehen
                     </a>
 
                 </motion.div>

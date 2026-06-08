@@ -4,7 +4,7 @@
 /* логотипом PERUNIX и кнопкой CTA                  */
 /* На мобилке — бургер-меню                         */
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useSound } from '../../hooks/useSound'
 import { useVibrate } from '../../hooks/useVibrate'
 import styles from './Navbar.module.css'
@@ -27,7 +27,7 @@ function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     /* Измеряем высоту navbar и передаём в CSS переменную */
-    const navRef = useRef(null)
+    // const navRef = useRef(null)
 
     /* Хуки звука и вибрации */
     const { playClick, playThunder } = useSound()
@@ -40,17 +40,17 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    useEffect(() => {
-        const updateHeight = () => {
-            if (navRef.current) {
-                const height = navRef.current.offsetHeight
-                document.documentElement.style.setProperty('--navbar-height', `${height}px`)
-            }
-        }
-        updateHeight()
-        window.addEventListener('resize', updateHeight)
-        return () => window.removeEventListener('resize', updateHeight)
-    }, [])
+    // useEffect(() => {
+    //     const updateHeight = () => {
+    //         if (navRef.current) {
+    //             const height = navRef.current.offsetHeight
+    //             document.documentElement.style.setProperty('--navbar-height', `${height}px`)
+    //         }
+    //     }
+    //     updateHeight()
+    //     window.addEventListener('resize', updateHeight)
+    //     return () => window.removeEventListener('resize', updateHeight)
+    // }, [])
 
     /* Закрываем меню при клике на ссылку */
     const handleLinkClick = () => {
@@ -68,7 +68,7 @@ function Navbar() {
 
     return (
         /* Фон появляется после скролла */
-        <header ref={navRef} className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             {/* Затемнение фона при открытом меню */}
             {menuOpen && (
                 <div
