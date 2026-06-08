@@ -18,8 +18,8 @@ const FLEE_RADIUS = 100
 const DIRECTION_CHANGE = 3000
 
 /* Интервал между автопрогрызанием дырки (мс) */
-const AUTO_BITE_MIN = 8000
-const AUTO_BITE_MAX = 15000
+const AUTO_BITE_MIN = 20000
+const AUTO_BITE_MAX = 40000
 
 /* Время затягивания дырки (мс) */
 const HOLE_CLOSE_TIME = 3000
@@ -27,9 +27,21 @@ const HOLE_CLOSE_TIME = 3000
 /* Время возрождения после смерти (мс) */
 const RESPAWN_TIME = 2000
 
+/* ---- Появление с краёв экрана ---- */
+/* Возвращает случайную позицию на одном из 4 краёв */
+const spawnFromEdge = () => {
+    const edge = Math.floor(Math.random() * 4)
+    switch (edge) {
+        case 0: return { x: Math.random() * window.innerWidth, y: -20 }                      /* сверху */
+        case 1: return { x: Math.random() * window.innerWidth, y: window.innerHeight + 20 }  /* снизу */
+        case 2: return { x: -20, y: Math.random() * window.innerHeight }                     /* слева */
+        default: return { x: window.innerWidth + 20, y: Math.random() * window.innerHeight } /* справа */
+    }
+}
+
 function Bug() {
     /* Позиция жука на экране */
-    const [pos, setPos] = useState({ x: 200, y: 200 })
+    const [pos, setPos] = useState({ x: -20, y: -20 })
 
     /* Угол поворота жука в градусах */
     const [angle, setAngle] = useState(0)
@@ -56,7 +68,7 @@ function Bug() {
     const biteTimer = useRef(null)
 
     /* Текущая позиция — ref для анимационного цикла */
-    const posRef = useRef({ x: 200, y: 200 })
+    const posRef = useRef({ x: -20, y: -20 })
 
     /* Флаг — жив ли жук */
     const aliveRef = useRef(true)
@@ -80,11 +92,10 @@ function Bug() {
             setTimeout(() => {
                 setHole(null)
 
-                /* Возрождаемся в случайном месте */
-                const newX = 100 + Math.random() * (window.innerWidth - 200)
-                const newY = 100 + Math.random() * (window.innerHeight - 200)
-                posRef.current = { x: newX, y: newY }
-                setPos({ x: newX, y: newY })
+                /* Возрождаемся с краю экрана */
+                const newPos = spawnFromEdge()
+                posRef.current = newPos
+                setPos(newPos)
                 aliveRef.current = true
                 setState('alive')
 
@@ -109,12 +120,11 @@ function Bug() {
         clearTimeout(biteTimer.current)
         setState('dead')
 
-        /* Через RESPAWN_TIME появляется новый жук */
+        /* Через RESPAWN_TIME появляется новый жук с краю */
         setTimeout(() => {
-            const newX = 100 + Math.random() * (window.innerWidth - 200)
-            const newY = 100 + Math.random() * (window.innerHeight - 200)
-            posRef.current = { x: newX, y: newY }
-            setPos({ x: newX, y: newY })
+            const newPos = spawnFromEdge()
+            posRef.current = newPos
+            setPos(newPos)
             aliveRef.current = true
             setState('alive')
             scheduleBite()
@@ -123,11 +133,10 @@ function Bug() {
 
     /* ---- Главный анимационный цикл ---- */
     useEffect(() => {
-        /* Случайное начальное положение */
-        const startX = 100 + Math.random() * (window.innerWidth - 200)
-        const startY = 100 + Math.random() * (window.innerHeight - 200)
-        posRef.current = { x: startX, y: startY }
-        setPos({ x: startX, y: startY })
+        /* Вылазим с краю при первой загрузке */
+        const startPos = spawnFromEdge()
+        posRef.current = startPos
+        setPos(startPos)
 
         /* Планируем первое автопрогрызание */
         scheduleBite()
@@ -184,7 +193,7 @@ function Bug() {
 
         animate()
 
-        /* Очистка */
+        /* Очистка при размонтировании */
         return () => {
             cancelAnimationFrame(animRef.current)
             clearInterval(dirTimer.current)
@@ -232,23 +241,17 @@ function Bug() {
           ${state === 'hidden' ? styles.hidden : ''}
         `}
                 style={{
-                    /* Позиционируем жука */
                     left: pos.x,
                     top: pos.y,
-                    /* Поворачиваем в сторону движения */
                     transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                 }}
-                /* Клик/тап по жуку — давим */
                 onClick={handleKill}
                 onTouchStart={(e) => { e.preventDefault(); handleKill() }}
             >
                 {/* SVG жук */}
-                <svg
-                    viewBox="0 0 40 40"
-                    className={styles.bugSvg}
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    {/* Передние ноги — анимируются вместе */}
+                <svg viewBox="0 0 40 40" className={styles.bugSvg} xmlns="http://www.w3.org/2000/svg">
+
+                    {/* Передние ноги */}
                     <g className={styles.legsFront}>
                         <line x1="14" y1="14" x2="4" y2="10" stroke="#3D1F00" strokeWidth="1.5" strokeLinecap="round" />
                         <line x1="26" y1="14" x2="36" y2="10" stroke="#3D1F00" strokeWidth="1.5" strokeLinecap="round" />
@@ -266,10 +269,10 @@ function Bug() {
                         <line x1="26" y1="26" x2="36" y2="30" stroke="#3D1F00" strokeWidth="1.5" strokeLinecap="round" />
                     </g>
 
-                    {/* Тело — золотое овальное */}
+                    {/* Тело — золотое */}
                     <ellipse cx="20" cy="22" rx="8" ry="11" fill="#C9A84C" />
 
-                    {/* Узор на теле — тёмные полоски */}
+                    {/* Узор на теле */}
                     <line x1="20" y1="12" x2="20" y2="33" stroke="#A68A35" strokeWidth="1" opacity="0.6" />
                     <line x1="13" y1="18" x2="27" y2="18" stroke="#A68A35" strokeWidth="1" opacity="0.4" />
                     <line x1="13" y1="24" x2="27" y2="24" stroke="#A68A35" strokeWidth="1" opacity="0.4" />
@@ -277,13 +280,14 @@ function Bug() {
                     {/* Голова — тёмно-коричневая */}
                     <ellipse cx="20" cy="10" rx="5" ry="4" fill="#3D1F00" />
 
-                    {/* Глаза — маленькие золотые точки */}
+                    {/* Глаза */}
                     <circle cx="18" cy="9" r="1" fill="#C9A84C" />
                     <circle cx="22" cy="9" r="1" fill="#C9A84C" />
 
-                    {/* Усики — тёмно-коричневые */}
+                    {/* Усики */}
                     <line x1="18" y1="7" x2="14" y2="3" stroke="#3D1F00" strokeWidth="1" strokeLinecap="round" />
                     <line x1="22" y1="7" x2="26" y2="3" stroke="#3D1F00" strokeWidth="1" strokeLinecap="round" />
+
                 </svg>
             </div>
         </>
