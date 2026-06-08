@@ -4,7 +4,7 @@
 /* логотипом PERUNIX и кнопкой CTA                  */
 /* На мобилке — бургер-меню                         */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSound } from '../../hooks/useSound'
 import { useVibrate } from '../../hooks/useVibrate'
 import styles from './Navbar.module.css'
@@ -19,11 +19,15 @@ const NAV_LINKS = [
 ]
 
 function Navbar() {
+    
     /* Флаг — прокрутил ли пользователь страницу */
     const [scrolled, setScrolled] = useState(false)
-
+    
     /* Флаг — открыто ли мобильное меню */
     const [menuOpen, setMenuOpen] = useState(false)
+
+    /* Измеряем высоту navbar и передаём в CSS переменную */
+    const navRef = useRef(null)
 
     /* Хуки звука и вибрации */
     const { playClick, playThunder } = useSound()
@@ -34,6 +38,18 @@ function Navbar() {
         const handleScroll = () => setScrolled(window.scrollY > 50)
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    useEffect(() => {
+        const updateHeight = () => {
+            if (navRef.current) {
+                const height = navRef.current.offsetHeight
+                document.documentElement.style.setProperty('--navbar-height', `${height}px`)
+            }
+        }
+        updateHeight()
+        window.addEventListener('resize', updateHeight)
+        return () => window.removeEventListener('resize', updateHeight)
     }, [])
 
     /* Закрываем меню при клике на ссылку */
@@ -52,7 +68,15 @@ function Navbar() {
 
     return (
         /* Фон появляется после скролла */
-        <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <header ref={navRef} className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+            {/* Затемнение фона при открытом меню */}
+            {menuOpen && (
+                <div
+                    className={styles.overlay}
+                    onClick={() => setMenuOpen(false)}
+                />
+            )}
+
             <div className={styles.container}>
 
                 {/* Логотип */}

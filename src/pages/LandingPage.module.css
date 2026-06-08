@@ -15,7 +15,7 @@
   z-index: 1;
 
   /* Отступ под фиксированный navbar */
-  padding-top: 1em;
+  padding-top: var(--navbar-height, 4em);
 
   /* Отступы между секциями */
   display: flex;

@@ -11,7 +11,7 @@ import styles from './HeroSection.module.css'
 /* Варианты анимации для Framer Motion */
 /* Каждый элемент появляется снизу вверх с задержкой */
 const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, delay, ease: 'easeOut' },
 })
@@ -49,9 +49,14 @@ function HeroSection() {
 
                 {/* Подзаголовок с описанием */}
                 <motion.p {...fadeUp(0.5)} className={styles.subtitle}>
-                    Hochleistungs-Webanwendungen, die begeistern.
+                    Wir entwickeln moderne Webseiten, Web-Apps und Online-Shops
+                    die Ihre Kunden begeistern.
                     <br />
-                    Von der Idee bis zum Launch — mit uns wird jedes Projekt zur Legende.
+                    Professionell, schnell und zuverlässig &ndash;
+                    von der ersten Idee bis zum fertigen Produkt.
+                    <br />
+                    Ihr Erfolg im Internet beginnt hier &ndash;
+                    mit uns wird jedes Projekt zur Legende.
                 </motion.p>
 
                 {/* Кнопки действий */}
@@ -59,12 +64,12 @@ function HeroSection() {
 
                     {/* Главная CTA кнопка */}
 
-                    <a href="#contact"
+                    {/* <a href="#contact"
                         className={styles.btnPrimary}
                         onClick={handleCta}
                     >
                         Start a Project ⚡
-                    </a>
+                    </a> */}
 
                     {/* Вторичная кнопка */}
 
