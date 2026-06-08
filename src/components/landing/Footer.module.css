@@ -1,0 +1,165 @@
+/* ===================== FOOTER ===================== */
+/* Компонент: Footer.jsx                             */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  background-color: var(--clr-surface);
+  border-top: 0.05em solid var(--clr-blue);
+  padding: 3em 0 1.5em;
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+/* ===================== ВЕРХНЯЯ ЧАСТЬ ===================== */
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3em;
+  margin-bottom: 2em;
+}
+
+/* ===================== БРЕНД ===================== */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+/* Логотип */
+.logo {
+  font-size: 1.8em;
+  font-weight: 900;
+  color: var(--clr-text);
+  letter-spacing: 0.05em;
+}
+
+.accent {
+  color: var(--clr-gold);
+}
+
+/* Слоган */
+.slogan {
+  font-size: 1em;
+  color: var(--clr-muted);
+  line-height: 1.6;
+  max-width: 20em;
+}
+
+/* ===================== НАВИГАЦИЯ ===================== */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+/* Заголовок колонки */
+.navTitle {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--clr-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4em;
+}
+
+/* Ссылка */
+.navLink {
+  font-size: 1em;
+  color: var(--clr-muted);
+  transition: var(--transition);
+}
+
+.navLink:hover {
+  color: var(--clr-gold);
+  padding-left: 0.3em;
+}
+
+/* ===================== КОНТАКТ ===================== */
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.contactItem {
+  font-size: 1em;
+  color: var(--clr-muted);
+}
+
+/* ===================== СОЦСЕТИ ===================== */
+.socialsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.socialLink {
+  font-size: 1em;
+  color: var(--clr-muted);
+  transition: var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--clr-gold);
+  padding-left: 0.3em;
+}
+
+/* ===================== РАЗДЕЛИТЕЛЬ ===================== */
+.divider {
+  height: 0.05em;
+  background-color: var(--clr-border);
+  margin-bottom: 1.5em;
+}
+
+/* ===================== НИЖНЯЯ ЧАСТЬ ===================== */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Копирайт */
+.copyright {
+  font-size: 0.9em;
+  color: var(--clr-muted);
+}
+
+/* Правовые ссылки */
+.legal {
+  display: flex;
+  gap: 1.5em;
+}
+
+.legalLink {
+  font-size: 0.9em;
+  color: var(--clr-muted);
+  transition: var(--transition);
+}
+
+.legalLink:hover {
+  color: var(--clr-gold);
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+}
