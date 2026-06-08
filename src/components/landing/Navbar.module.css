@@ -8,7 +8,8 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 0.8em 0;
+  padding: 0.3em 0;
+  border-bottom: 0.05em solid var(--clr-blue);
   transition: var(--transition);
 }
 
@@ -16,7 +17,7 @@
 .scrolled {
   background-color: rgba(248, 246, 240, 0.92);
   backdrop-filter: blur(0.6em);
-  border-bottom: 0.05em solid var(--clr-border);
+  border-bottom: 0.05em solid var(--clr-muted);
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.06);
 }
 
@@ -101,37 +102,54 @@
   transform: translateY(-0.1em);
 }
 
-/* ===================== БУРГЕР ===================== */
-/* Показываем только на мобилке */
+/* ===================== БУРГЕР SVG ===================== */
+/* Три волнистые линии трансформируются в крестик */
 .burger {
   display: none;
-  flex-direction: column;
-  gap: 0.35em;
   padding: 0.3em;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
-/* Одна линия бургера */
-.burgerLine {
-  display: block;
-  width: 1.5em;
-  height: 0.12em;
-  background-color: var(--clr-text);
-  border-radius: 0.1em;
-  transition: var(--transition);
+/* SVG контейнер */
+.burgerSvg {
+  width: 3em;
+  height: 3em;
 }
 
-/* Анимация бургера в крестик */
-.burgerLine.open:nth-child(1) {
-  transform: translateY(0.47em) rotate(45deg);
+/* Базовый стиль волны */
+.burgerPath {
+  fill: none;
+  stroke: var(--clr-blue);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: all 0.5s ease;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-.burgerLine.open:nth-child(2) {
+/* ---- Открытое состояние — крестик ---- */
+
+/* Верхняя волна → поворачиваем и двигаем вниз */
+.open1 {
+  transform: translateY(10px) rotate(45deg);
+  stroke: var(--clr-gold);
+  /* Выпрямляем волну */
+  d: path("M8,10 L32,10");
+}
+
+/* Средняя — исчезает */
+.open2 {
   opacity: 0;
+  transform: scaleX(0);
 }
 
-.burgerLine.open:nth-child(3) {
-  transform: translateY(-0.47em) rotate(-45deg);
+/* Нижняя волна → поворачиваем и двигаем вверх */
+.open3 {
+  transform: translateY(-10px) rotate(-45deg);
+  stroke: var(--clr-gold);
+  d: path("M8,30 L32,30");
 }
 
 /* ===================== МОБИЛЬНОЕ МЕНЮ ===================== */
@@ -150,7 +168,7 @@
   font-weight: 700;
   color: var(--clr-muted);
   padding: 0.8em 0;
-  border-bottom: 0.05em solid var(--clr-border);
+  border-bottom: 0.05em solid var(--clr-blue);
   transition: var(--transition);
 }
 
@@ -164,7 +182,7 @@
   margin-top: 0.8em;
   font-size: 1.1em;
   font-weight: 700;
-  padding: 0.9em;
+  padding: 0.4em;
   border-radius: var(--radius-btn);
   background-color: var(--clr-gold);
   color: #fff;

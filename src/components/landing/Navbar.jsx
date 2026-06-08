@@ -60,7 +60,7 @@ function Navbar() {
                     {/* PER — золото, UN — тёмный, IX — золото */}
                     <span className={styles.accent}>
                         PER</span>
-                        UN<span className={styles.accent}>
+                    UN<span className={styles.accent}>
                         IX</span>
                 </a>
 
@@ -87,7 +87,7 @@ function Navbar() {
                     Get Started
                 </a>
 
-                {/* Бургер — только мобилка */}
+                {/* Бургер — SVG три волнистые линии → крестик */}
                 <button
                     className={styles.burger}
                     onClick={() => {
@@ -97,10 +97,24 @@ function Navbar() {
                     }}
                     aria-label="Toggle menu"
                 >
-                    {/* Три линии бургера */}
-                    <span className={`${styles.burgerLine} ${menuOpen ? styles.open : ''}`} />
-                    <span className={`${styles.burgerLine} ${menuOpen ? styles.open : ''}`} />
-                    <span className={`${styles.burgerLine} ${menuOpen ? styles.open : ''}`} />
+                    <svg
+                        viewBox="0 0 40 40"
+                        className={styles.burgerSvg}
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        {/* Верхняя волна → левая линия крестика */}
+                        <path className={`${styles.burgerPath} ${styles.path1} ${menuOpen ? styles.open1 : ''}`}
+                            d="M5,10 Q12,6 20,10 Q28,14 35,10"
+                        />
+                        {/* Средняя волна → исчезает */}
+                        <path className={`${styles.burgerPath} ${styles.path2} ${menuOpen ? styles.open2 : ''}`}
+                            d="M5,20 Q12,16 20,20 Q28,24 35,20"
+                        />
+                        {/* Нижняя волна → правая линия крестика */}
+                        <path className={`${styles.burgerPath} ${styles.path3} ${menuOpen ? styles.open3 : ''}`}
+                            d="M5,30 Q12,26 20,30 Q28,34 35,30"
+                        />
+                    </svg>
                 </button>
 
             </div >
