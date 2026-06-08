@@ -1,0 +1,122 @@
+/* ===================== TECH SECTION ===================== */
+/* Компонент: TechSection.jsx                              */
+
+.tech {
+  padding: 3em 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ===================== КОНТЕЙНЕР ===================== */
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.sectionTitle {
+  font-size: clamp(1.75em, 4vw, 3em);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: var(--clr-text);
+}
+
+.accent {
+  color: var(--clr-gold);
+}
+
+/* ===================== ПОДЗАГОЛОВОК ===================== */
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--clr-muted);
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+/* ===================== ОБЁРТКА СТРОКИ ===================== */
+/* Скрывает карточки за краями экрана */
+.rowWrapper {
+  overflow: hidden;
+  margin-bottom: 1em;
+  /* Градиент по краям — плавное исчезновение */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* ===================== ТРЕК ===================== */
+/* Горизонтальная полоса карточек */
+.track {
+  display: flex;
+  gap: 1em;
+  width: max-content;
+}
+
+/* Едет влево */
+.trackLeft {
+  animation: scrollLeft 25s linear infinite;
+}
+
+/* Едет вправо */
+.trackRight {
+  animation: scrollRight 25s linear infinite;
+}
+
+/* ===================== АНИМАЦИИ ===================== */
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ===================== КАРТОЧКА ТЕХНОЛОГИИ ===================== */
+.techCard {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 0.8em 1.4em;
+  white-space: nowrap;
+  transition: var(--transition);
+  cursor: default;
+}
+
+/* Hover — золотая рамка */
+.techCard:hover {
+  border-color: var(--clr-gold);
+  background-color: var(--clr-surface-2);
+  transform: translateY(-0.2em);
+}
+
+/* Иконка */
+.techIcon {
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+/* Название */
+.techName {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--clr-text);
+}
