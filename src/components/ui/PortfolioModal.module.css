@@ -1,0 +1,142 @@
+/* ===================== PORTFOLIO MODAL ===================== */
+/* Компонент: PortfolioModal.jsx                              */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.3em);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em;
+  padding-top: 5em;
+}
+
+.modal {
+  background-color: var(--clr-bg);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  max-width: 32em;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  box-shadow: 0 1em 4em rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Цветная полоска */
+.accent {
+  height: 0.3em;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Шапка */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  padding: 0 1.5em;
+}
+
+.emoji {
+  font-size: 2em;
+  flex-shrink: 0;
+}
+
+.category {
+  font-size: 0.8em;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  display: block;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.closeBtn {
+  margin-left: auto;
+  font-size: 1.4em;
+  color: var(--clr-muted);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.closeBtn:hover {
+  color: var(--clr-text);
+}
+
+/* Описание */
+.description {
+  font-size: 1.1em;
+  color: var(--clr-muted);
+  line-height: 1.8;
+  padding: 0 1.5em;
+}
+
+/* Технологии */
+.techBlock {
+  padding: 0 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.techTitle {
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--clr-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.techTag {
+  font-size: 0.9em;
+  padding: 0.3em 0.8em;
+  border-radius: 2em;
+  background-color: var(--clr-surface);
+  color: var(--clr-muted);
+  border: 0.05em solid var(--clr-border);
+}
+
+/* Кнопка ссылки */
+.linkBtn {
+  margin: 0 1.5em 1.5em;
+  display: block;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0.7em;
+  border-radius: var(--radius-btn);
+  background-color: var(--clr-gold);
+  color: #fff;
+  transition: var(--transition);
+}
+
+.linkBtn:hover {
+  background-color: var(--clr-gold-dark);
+  transform: translateY(-0.1em);
+}
+
+/* Адаптив */
+@media (max-width: 48em) {
+  .modal {
+    max-height: 85vh;
+  }
+}

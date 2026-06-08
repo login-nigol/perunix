@@ -1,0 +1,172 @@
+/* ===================== PORTFOLIO SECTION ===================== */
+
+.portfolio {
+  padding: 3em 0;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75em, 4vw, 3em);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: var(--clr-text);
+}
+
+.accent { color: var(--clr-gold); }
+
+.sectionSubtitle {
+  font-size: 1.2em;
+  color: var(--clr-muted);
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+/* ===================== КАРУСЕЛЬ ===================== */
+/* Обёртка скрывает карточки за краями */
+.carouselWrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 1em 0 1.5em;
+}
+
+/* Трек — горизонтальная полоса карточек */
+.track {
+  display: flex;
+  gap: 1.5em;
+  will-change: transform;
+}
+
+/* ===================== КАРТОЧКА ===================== */
+.card {
+  min-width: 18em;
+  max-width: 18em;
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 0 1.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  cursor: pointer;
+  transition: opacity 0.5s, transform 0.5s, border-color 0.5s, box-shadow 0.5s;
+  overflow: hidden;
+  /* Неактивные карточки чуть прозрачнее */
+  opacity: 0.6;
+  transform: scale(0.93);
+  flex-shrink: 0;
+}
+
+/* Активная карточка */
+.cardActive {
+  opacity: 1;
+  transform: scale(1);
+  border-color: var(--clr-gold);
+  box-shadow: 0 0.5em 2em rgba(201, 168, 76, 0.2);
+}
+
+.card:hover {
+  opacity: 0.9;
+}
+
+.cardUnavailable {
+  cursor: default;
+}
+
+/* Цветная полоска */
+.cardAccent {
+  height: 0.3em;
+  margin: 0 -1.5em;
+  margin-bottom: 0.5em;
+}
+
+.cardEmoji    { font-size: 2em; }
+
+.cardCategory {
+  font-size: 0.8em;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.cardDescription {
+  font-size: 1em;
+  color: var(--clr-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.cardBtn {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--clr-gold);
+  margin-top: 0.3em;
+}
+
+/* ===================== КОНТРОЛЫ ===================== */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+/* Стрелки */
+.arrow {
+  font-size: 1.4em;
+  color: var(--clr-muted);
+  padding: 0.3em 0.8em;
+  border-radius: var(--radius-btn);
+  border: 0.05em solid var(--clr-border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.arrow:hover {
+  color: var(--clr-gold);
+  border-color: var(--clr-gold);
+}
+
+/* Точки */
+.dots {
+  display: flex;
+  gap: 0.5em;
+}
+
+.dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: var(--clr-border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dotActive {
+  background-color: var(--clr-gold);
+  width: 1.5em;
+  border-radius: 0.3em;
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 48em) {
+  .card {
+    min-width: 15em;
+    max-width: 15em;
+  }
+}
