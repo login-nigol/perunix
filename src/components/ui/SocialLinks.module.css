@@ -3,7 +3,7 @@
 
 .wrapper {
   background-color: var(--clr-surface);
-  border: 0.05em solid var(--clr-border);
+  border: 0.05em solid var(--clr-blue);
   border-radius: var(--radius-card);
   padding: 1.5em;
   display: flex;
@@ -15,7 +15,7 @@
 
 /* Подпись */
 .text {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
 }
 
