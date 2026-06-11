@@ -15,8 +15,8 @@ import CustomSelect from '../ui/CustomSelect'
 
 function ServiceModal({ service, onClose, onRequest }) {
 
-    const { playThunder } = useSound()
-    const { vibrateThunder } = useVibrate()
+    const { playThunder, playClick } = useSound()
+    const { vibrateThunder, vibrateClick } = useVibrate()
 
     /* Ответы на уточняющие вопросы */
     const [answers, setAnswers] = useState({})
@@ -36,7 +36,11 @@ function ServiceModal({ service, onClose, onRequest }) {
     return (
         /* Затемнённый оверлей — клик закрывает модалку */
         <div className={styles.overlay}
-            onClick={onClose}
+            onClick={() => {
+                playClick()
+                vibrateClick()
+                onClose()
+            }}
             onWheel={e => e.stopPropagation()}
             onTouchMove={e => e.stopPropagation()}
         >
@@ -60,7 +64,16 @@ function ServiceModal({ service, onClose, onRequest }) {
                         <p className={styles.modalShort}>{service.short}</p>
                     </div>
                     {/* Кнопка закрытия */}
-                    <button className={styles.closeBtn} onClick={onClose}>✕</button>
+                    <button
+                        className={styles.closeBtn}
+                        onClick={() => {
+                            playClick()
+                            vibrateClick()
+                            onClose()
+                        }}
+                    >
+                        ✕
+                    </button>
                 </div>
 
                 {/* Полное описание услуги */}
