@@ -93,12 +93,13 @@
   align-items: center;
   gap: 0.6em;
   background-color: var(--clr-surface);
-  border: 0.05em solid var(--clr-border);
+  border: 0.05em solid var(--clr-blue);
   border-radius: var(--radius-card);
   padding: 0.8em 1.4em;
   white-space: nowrap;
   transition: var(--transition);
   cursor: default;
+  pointer-events: none;
 }
 
 /* Hover — золотая рамка */
