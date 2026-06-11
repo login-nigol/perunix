@@ -10,13 +10,13 @@ import styles from './LightningCanvas.module.css'
 /* Все настройки анимации в одном месте — меняй здесь */
 const CONFIG = {
     /* Количество диагональных фоновых линий */
-    LINES_COUNT: 40,
+    LINES_COUNT: 0,
 
     /* Количество летающих частиц-искр */
     PARTICLES_COUNT: 0,
 
     /* Количество молний одновременно на экране */
-    LIGHTNING_COUNT: 5,
+    LIGHTNING_COUNT: 6,
 
     /* Скорость движения частиц */
     PARTICLE_SPEED: 0.4,

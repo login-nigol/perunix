@@ -4,7 +4,7 @@
 /* Жук фиксирован поверх всего */
 .bug {
   position: fixed;
-  z-index: 999;
+  z-index: 0;
   cursor: pointer;
   /* Центрируем по точке позиции */
   transform: translate(-50%, -50%);
@@ -93,7 +93,7 @@
 /* Рваная дырка от прогрызания                     */
 .hole {
   position: fixed;
-  z-index: 998;
+  z-index: 10;
   width: 3em;
   height: 3em;
   /* Рваные края через clip-path */

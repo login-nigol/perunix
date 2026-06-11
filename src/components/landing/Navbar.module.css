@@ -32,12 +32,26 @@
 }
 
 /* ===================== ЛОГОТИП ===================== */
-.logo {
+/* .logo {
   font-size: 1.5em;
   font-weight: 800;
   color: var(--clr-text);
   letter-spacing: 0.05em;
   transition: var(--transition);
+} */
+ /* Логотип — иконка + текст в ряд */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.7em;
+  font-weight: 800;
+}
+
+/* Размер SVG иконки */
+.logoIcon {
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .logo:hover {

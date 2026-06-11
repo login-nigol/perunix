@@ -19,10 +19,10 @@ const NAV_LINKS = [
 ]
 
 function Navbar() {
-    
+
     /* Флаг — прокрутил ли пользователь страницу */
     const [scrolled, setScrolled] = useState(false)
-    
+
     /* Флаг — открыто ли мобильное меню */
     const [menuOpen, setMenuOpen] = useState(false)
 
@@ -79,13 +79,27 @@ function Navbar() {
 
             <div className={styles.container}>
 
-                {/* Логотип */}
-                <a href="#hero" className={styles.logo} onClick={handleLinkClick}>
-                    {/* PER — золото, UN — тёмный, IX — золото */}
-                    <span className={styles.accent}>
-                        PER</span>
-                    UN<span className={styles.accent}>
-                        IX</span>
+                {/* Логотип — SVG иконка + текст */}
+
+                <a href="/"
+                    className={styles.logo}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        playClick()
+                        vibrateClick()
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
+                >
+                    {/* SVG иконка шестигранник */}
+                    <img
+                        src="/logo-icon.svg"
+                        alt="PERUNIX"
+                        className={styles.logoIcon}
+                    />
+                    {/* Текст */}
+                    <span>
+                        <span className={styles.accent}>PER</span>UN<span className={styles.accent}>IX</span>
+                    </span>
                 </a>
 
                 {/* Десктопное меню */}

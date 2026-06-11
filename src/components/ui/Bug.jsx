@@ -244,6 +244,7 @@ function Bug() {
                     left: pos.x,
                     top: pos.y,
                     transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                    zIndex: 10,
                 }}
                 onClick={handleKill}
                 onTouchStart={(e) => { e.preventDefault(); handleKill() }}
