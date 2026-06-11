@@ -6,7 +6,7 @@
   z-index: 1;
   background-color: var(--clr-surface);
   border-top: 0.05em solid var(--clr-blue);
-  padding: 3em 0 1.5em;
+  padding: 1em 0 1.5em;
 }
 
 /* ===================== КОНТЕЙНЕР ===================== */
@@ -20,15 +20,16 @@
 .top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3em;
-  margin-bottom: 2em;
+  /* gap: 3em; */
+  margin-bottom: 1em;
 }
 
 /* ===================== БРЕНД ===================== */
 .brand {
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
+  text-align: center;
+  /* gap: 0.8em; */
 }
 
 /* Логотип */
@@ -45,31 +46,31 @@
 
 /* Слоган */
 .slogan {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
   line-height: 1.6;
   max-width: 20em;
 }
 
 /* ===================== НАВИГАЦИЯ ===================== */
-.nav {
+/* .nav {
   display: flex;
   flex-direction: column;
   gap: 0.6em;
-}
+} */
 
 /* Заголовок колонки */
-.navTitle {
+/* .navTitle {
   font-size: 0.9em;
   font-weight: 700;
   color: var(--clr-text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.4em;
-}
+} */
 
 /* Ссылка */
-.navLink {
+/* .navLink {
   font-size: 1em;
   color: var(--clr-muted);
   transition: var(--transition);
@@ -78,10 +79,10 @@
 .navLink:hover {
   color: var(--clr-gold);
   padding-left: 0.3em;
-}
+} */
 
 /* ===================== КОНТАКТ ===================== */
-.contactBlock {
+/* .contactBlock {
   display: flex;
   flex-direction: column;
   gap: 0.6em;
@@ -90,10 +91,10 @@
 .contactItem {
   font-size: 1em;
   color: var(--clr-muted);
-}
+} */
 
 /* ===================== СОЦСЕТИ ===================== */
-.socialsBlock {
+/* .socialsBlock {
   display: flex;
   flex-direction: column;
   gap: 0.6em;
@@ -108,12 +109,12 @@
 .socialLink:hover {
   color: var(--clr-gold);
   padding-left: 0.3em;
-}
+} */
 
 /* ===================== РАЗДЕЛИТЕЛЬ ===================== */
 .divider {
   height: 0.05em;
-  background-color: var(--clr-border);
+  background-color: var(--clr-gold);
   margin-bottom: 1.5em;
 }
 

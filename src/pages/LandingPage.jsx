@@ -39,7 +39,7 @@ function LandingPage() {
             </main>
 
             {/* Подвал */}
-            {/* <Footer /> */}
+            <Footer />
 
         </div>
     )
