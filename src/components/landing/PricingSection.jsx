@@ -15,7 +15,7 @@ const PLANS = [
     {
         id: 'starter',
         name: 'Starter',
-        price: '799',
+        price: '399',
         popular: false,
         description: 'Perfekt für Selbstständige und kleine Unternehmen',
         includes: [
@@ -29,7 +29,7 @@ const PLANS = [
     {
         id: 'business',
         name: 'Business',
-        price: '1.999',
+        price: '899',
         popular: true,
         description: 'Für Unternehmen die online wachsen wollen',
         includes: [
@@ -44,7 +44,7 @@ const PLANS = [
     {
         id: 'premium',
         name: 'Premium',
-        price: '4.999',
+        price: '2.499',
         popular: false,
         description: 'Vollständige Web-App mit Backend',
         includes: [

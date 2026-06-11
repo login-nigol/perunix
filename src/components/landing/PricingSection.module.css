@@ -11,7 +11,7 @@
 .container {
   max-width: 75em;
   margin: 0 auto;
-  padding: 0 1.5em;
+  padding: 0 0.5em;
 }
 
 /* ===================== ЗАГОЛОВОК ===================== */
@@ -31,7 +31,7 @@
   color: var(--clr-muted);
   text-align: center;
   max-width: 36em;
-  margin: 0 auto 3em;
+  margin: 0 auto 2em;
   line-height: 1.8;
 }
 
@@ -48,7 +48,7 @@
   background-color: var(--clr-surface);
   border: 0.05em solid var(--clr-border);
   border-radius: var(--radius-card);
-  padding: 2em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -90,14 +90,15 @@
 
 /* ===================== НАЗВАНИЕ ===================== */
 .planName {
+  text-align: center;
   font-size: 1.5em;
   font-weight: 800;
-  color: var(--clr-text);
+  color: var(--clr-blue);
 }
 
 /* ===================== ОПИСАНИЕ ===================== */
 .planDescription {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
   line-height: 1.6;
 }
@@ -110,7 +111,7 @@
 }
 
 .priceFrom {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
 }
 
@@ -123,7 +124,7 @@
 /* ===================== РАЗДЕЛИТЕЛЬ ===================== */
 .divider {
   height: 0.05em;
-  background-color: var(--clr-border);
+  background-color: var(--clr-blue);
 }
 
 /* ===================== СПИСОК ===================== */
@@ -139,7 +140,7 @@
   display: flex;
   align-items: center;
   gap: 0.7em;
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
 }
 
@@ -177,8 +178,8 @@
 /* Прозрачная кнопка */
 .btnSecondary {
   background: none;
-  border: 0.05em solid var(--clr-border);
-  color: var(--clr-text);
+  border: 0.05em solid var(--clr-blue);
+  color: var(--clr-blue);
 }
 
 .btnSecondary:hover {
