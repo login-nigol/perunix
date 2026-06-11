@@ -11,6 +11,7 @@ import { useVibrate } from '../../hooks/useVibrate'
 
 import styles from './ContactSection.module.css'
 import CustomSelect from '../ui/CustomSelect'
+import SocialLinks from '../ui/SocialLinks'
 
 /* Контактные данные */
 const CONTACT_INFO = [
@@ -256,13 +257,7 @@ function ContactSection() {
                                 Lieber direkt schreiben?
                             </p>
 
-                            <a href="https://wa.me/49123456789"
-                                target="_blank"
-                                rel="noreferrer"
-                                className={styles.whatsappBtn}
-                            >
-                                💬 WhatsApp
-                            </a>
+                            <SocialLinks />
                         </div>
 
                     </motion.div>

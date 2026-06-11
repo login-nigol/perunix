@@ -1,0 +1,70 @@
+/* ===================== SOCIAL LINKS ===================== */
+/* Компонент: SocialLinks.jsx                              */
+
+.wrapper {
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-card);
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+}
+
+/* Подпись */
+.text {
+  font-size: 1em;
+  color: var(--clr-muted);
+}
+
+/* Кнопки в ряд */
+.buttons {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+
+/* Базовая кнопка */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  flex: 1;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.8em 1em;
+  border-radius: var(--radius-btn);
+  color: #fff;
+  transition: var(--transition);
+}
+
+/* SVG иконка */
+.icon {
+  width: 1.3em;
+  height: 1.3em;
+  fill: #fff;
+  flex-shrink: 0;
+}
+
+/* WhatsApp — зелёная */
+.whatsapp {
+  background-color: #25D366;
+}
+
+.whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-0.1em);
+}
+
+/* Telegram — голубой */
+.telegram {
+  background-color: #229ED9;
+}
+
+.telegram:hover {
+  background-color: #1a8bbf;
+  transform: translateY(-0.1em);
+}
