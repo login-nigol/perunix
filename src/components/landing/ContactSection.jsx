@@ -76,6 +76,8 @@ function ContactSection() {
 
             /* Показываем сообщение об успехе */
             setSent(true)
+            /* Скроллим к форме чтобы видеть сообщение об успехе */
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
             setSelectedService(null)
 
             /* Сбрасываем форму */
