@@ -4,10 +4,11 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import PortfolioModal from '../ui/PortfolioModal'
 import { useSound } from '../../hooks/useSound'
 import { useVibrate } from '../../hooks/useVibrate'
+
 import styles from './PortfolioSection.module.css'
+import PortfolioModal from '../ui/PortfolioModal'
 
 /* ===================== ДАННЫЕ ПРОЕКТОВ ===================== */
 const PROJECTS = [
@@ -49,20 +50,23 @@ const PROJECTS = [
     },
 ]
 
-/* Клонируем для бесконечности */
+/* Клонируем по 3 с каждой стороны — хватит для любого экрана */
 const INFINITE = [
-    { ...PROJECTS[PROJECTS.length - 1], id: 'clone-start' },
+    ...PROJECTS.slice(-3).map((p, i) => ({ ...p, id: `clone-start-${i}` })),
     ...PROJECTS,
-    { ...PROJECTS[0], id: 'clone-end' },
+    ...PROJECTS.slice(0, 3).map((p, i) => ({ ...p, id: `clone-end-${i}` })),
 ]
+
+const CLONE_COUNT = 3
 
 function PortfolioSection() {
     const [activeProject, setActiveProject] = useState(null)
 
     /* Индекс активной карточки для подсветки и точек */
-    const [displayIdx, setDisplayIdx] = useState(1)
+    const [displayIdx, setDisplayIdx] = useState(CLONE_COUNT)
 
-    const currentIdx = useRef(1)
+    const currentIdx = useRef(CLONE_COUNT)
+
     const isTransitioning = useRef(false)
     const isPaused = useRef(false)
     const trackRef = useRef(null)
@@ -96,49 +100,79 @@ function PortfolioSection() {
         setDisplayIdx(index)
     }, [])
 
-    /* ---- Следующая ---- */
+    /* ---- Следующая карточка ---- */
     const goNext = useCallback(() => {
+        /* Блокируем если уже идёт анимация */
         if (isTransitioning.current) return
         isTransitioning.current = true
 
+        /* Двигаем на следующий индекс */
         currentIdx.current += 1
         moveTo(currentIdx.current)
 
         setTimeout(() => {
-            /* Дошли до клона конца — прыгаем на реальный первый */
-            if (currentIdx.current >= INFINITE.length - 1) {
-                currentIdx.current = 1
-                moveTo(1, false)
+            /* Дошли до клонов в конце — телепортируемся на реальное начало */
+            if (currentIdx.current >= PROJECTS.length + CLONE_COUNT) {
+                const track = trackRef.current
+                /* Убираем анимацию для незаметного прыжка */
+                track.style.transition = 'none'
+                /* Устанавливаем реальный первый индекс */
+                currentIdx.current = CLONE_COUNT
+                /* Принудительный reflow — браузер применяет transition:none ДО transform */
+                void track.offsetHeight
+                /* Телепортируемся на реальную первую карточку */
+                const wrapper = wrapperRef.current
+                const card = track.querySelector('[data-card]')
+                const cardW = card ? card.offsetWidth + 24 : 312
+                const offset = (wrapper.offsetWidth / 2) - (card ? card.offsetWidth / 2 : 144)
+                track.style.transform = `translateX(${offset - CLONE_COUNT * cardW}px)`
+                setDisplayIdx(CLONE_COUNT)
             }
+            /* Снимаем блокировку */
             isTransitioning.current = false
-        }, 520)
+        }, 850)
     }, [moveTo])
 
-    /* ---- Предыдущая ---- */
+    /* ---- Предыдущая карточка ---- */
     const goPrev = useCallback(() => {
+        /* Блокируем если уже идёт анимация */
         if (isTransitioning.current) return
         isTransitioning.current = true
 
+        /* Двигаем на предыдущий индекс */
         currentIdx.current -= 1
         moveTo(currentIdx.current)
 
         setTimeout(() => {
-            /* Дошли до клона начала — прыгаем на реальный последний */
-            if (currentIdx.current <= 0) {
-                currentIdx.current = PROJECTS.length
-                moveTo(PROJECTS.length, false)
+            /* Дошли до клонов в начале — телепортируемся на реальный конец */
+            if (currentIdx.current <= CLONE_COUNT - 1) {
+                const track = trackRef.current
+                /* Убираем анимацию для незаметного прыжка */
+                track.style.transition = 'none'
+                /* Устанавливаем реальный последний индекс */
+                currentIdx.current = PROJECTS.length + CLONE_COUNT - 1
+                /* Принудительный reflow */
+                void track.offsetHeight
+                /* Телепортируемся на реальную последнюю карточку */
+                const wrapper = wrapperRef.current
+                const card = track.querySelector('[data-card]')
+                const cardW = card ? card.offsetWidth + 24 : 312
+                const offset = (wrapper.offsetWidth / 2) - (card ? card.offsetWidth / 2 : 144)
+                track.style.transform = `translateX(${offset - (PROJECTS.length + CLONE_COUNT - 1) * cardW}px)`
+                setDisplayIdx(PROJECTS.length + CLONE_COUNT - 1)
             }
+            /* Снимаем блокировку */
             isTransitioning.current = false
-        }, 520)
+        }, 850)
     }, [moveTo])
 
     /* ---- Запуск карусели ---- */
     useEffect(() => {
         const init = setTimeout(() => moveTo(1, false), 100)
 
-        autoTimer.current = setInterval(() => {
-            if (!isPaused.current) goNext()
-        }, 2500)
+        // autoTimer.current = setInterval(() => {
+        //     if (!isPaused.current) goNext()
+        // }, 2500)
 
         return () => {
             clearInterval(autoTimer.current)
@@ -176,8 +210,20 @@ function PortfolioSection() {
         }
     }, [])
 
+    /* ---- Блокируем скролл страницы при открытой модалке ---- */
+    useEffect(() => {
+        if (activeProject) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [activeProject])
+
     /* ---- Реальный индекс для точек ---- */
-    const realIndex = ((displayIdx - 1) % PROJECTS.length + PROJECTS.length) % PROJECTS.length
+    const realIndex = ((displayIdx - CLONE_COUNT) % PROJECTS.length + PROJECTS.length) % PROJECTS.length
 
     return (
         <section className={styles.portfolio} id="portfolio">

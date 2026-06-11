@@ -84,12 +84,17 @@
 .cardAccent {
   height: 0.3em;
   margin: 0 -1.5em;
-  margin-bottom: 0.5em;
+  /* text-align: center; */
+  /* margin-bottom: 0.5em; */
 }
 
-.cardEmoji    { font-size: 2em; }
+.cardEmoji {
+  font-size: 2em;
+  text-align: center;
+}
 
 .cardCategory {
+  text-align: center;
   font-size: 0.8em;
   color: var(--clr-muted);
   text-transform: uppercase;
@@ -98,12 +103,14 @@
 }
 
 .cardTitle {
+  text-align: center;
   font-size: 1.3em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-blue);
 }
 
 .cardDescription {
+  text-align: center;
   font-size: 1em;
   color: var(--clr-muted);
   line-height: 1.6;

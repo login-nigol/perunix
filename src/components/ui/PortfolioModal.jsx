@@ -3,12 +3,25 @@
 /* Модалка с полным описанием проекта и ссылкой              */
 
 import { motion } from 'framer-motion'
+import { useSound } from '../../hooks/useSound'
+import { useVibrate } from '../../hooks/useVibrate'
+
 import styles from './PortfolioModal.module.css'
 
 function PortfolioModal({ project, onClose }) {
+    const { playClick, playThunder } = useSound()
+    const { vibrateClick, vibrateThunder } = useVibrate()
+
     return (
         /* Затемнённый оверлей */
-        <div className={styles.overlay} onClick={onClose}>
+        <div
+            className={styles.overlay}
+            onClick={() => {
+                playClick()
+                vibrateClick()
+                onClose()
+            }}
+        >
             <motion.div
                 className={styles.modal}
                 onClick={e => e.stopPropagation()}
@@ -30,7 +43,16 @@ function PortfolioModal({ project, onClose }) {
                         <span className={styles.category}>{project.category}</span>
                         <h3 className={styles.title}>{project.title}</h3>
                     </div>
-                    <button className={styles.closeBtn} onClick={onClose}>✕</button>
+                    <button
+                        className={styles.closeBtn}
+                        onClick={() => {
+                            playClick()
+                            vibrateClick()
+                            onClose()
+                        }}
+                    >
+                        ✕
+                    </button>
                 </div>
 
                 {/* Описание */}
@@ -53,8 +75,12 @@ function PortfolioModal({ project, onClose }) {
                         target="_blank"
                         rel="noreferrer"
                         className={styles.linkBtn}
+                        onClick={() => {
+                            playThunder()
+                            vibrateThunder()
+                        }}
                     >
-                        Projekt ansehen →
+                        Projekt ansehen
                     </a>
                 )}
 

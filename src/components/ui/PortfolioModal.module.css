@@ -61,13 +61,13 @@
 .title {
   font-size: 1.3em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-blue);
 }
 
 .closeBtn {
   margin-left: auto;
   font-size: 1.4em;
-  color: var(--clr-muted);
+  color: var(--clr-gold);
   flex-shrink: 0;
   transition: var(--transition);
 }
@@ -89,13 +89,14 @@
   padding: 0 1.5em;
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
+  gap: 0.8em;  
 }
 
 .techTitle {
+  text-align: center;
   font-size: 1em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-gold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -111,18 +112,18 @@
   padding: 0.3em 0.8em;
   border-radius: 2em;
   background-color: var(--clr-surface);
-  color: var(--clr-muted);
-  border: 0.05em solid var(--clr-border);
+  color: var(--clr-text);
+  border: 0.05em solid var(--clr-gold);
 }
 
 /* Кнопка ссылки */
 .linkBtn {
-  margin: 0 1.5em 1.5em;
+  margin: 0 3.5em 1.5em;
   display: block;
   text-align: center;
   font-size: 1.1em;
   font-weight: 700;
-  padding: 0.7em;
+  padding: 0.4em;
   border-radius: var(--radius-btn);
   background-color: var(--clr-gold);
   color: #fff;
