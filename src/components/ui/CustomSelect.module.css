@@ -1,0 +1,110 @@
+/* ===================== CUSTOM SELECT ===================== */
+/* Компонент: CustomSelect.jsx                              */
+
+/* Обёртка — relative для выпадающего списка */
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ===================== КНОПКА ТРИГГЕР ===================== */
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1em;
+  background-color: var(--clr-surface);
+  border: 0.05em solid var(--clr-border);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  font-size: 0.95em;
+  text-align: left;
+}
+
+/* Триггер открыт — голубая рамка */
+.triggerOpen {
+  border-color: var(--clr-blue);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.trigger:hover {
+  border-color: var(--clr-blue);
+}
+
+/* Placeholder — серый */
+.placeholder {
+  color: var(--clr-muted);
+}
+
+/* Выбранное значение — тёмный */
+.selected {
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+/* Стрелка */
+.arrow {
+  color: var(--clr-muted);
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+}
+
+/* ===================== СПИСОК ОПЦИЙ ===================== */
+.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-bg);
+  border: 0.05em solid var(--clr-blue);
+  border-top: none;
+  border-bottom-left-radius: var(--radius-btn);
+  border-bottom-right-radius: var(--radius-btn);
+  list-style: none;
+  overflow: hidden;
+  z-index: 1100;
+  box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.1);
+}
+
+/* ===================== ОДНА ОПЦИЯ ===================== */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.8em 1em;
+  font-size: 0.95em;
+  color: var(--clr-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 0.05em solid var(--clr-border);
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+/* Hover */
+.option:hover {
+  background-color: var(--clr-surface);
+  color: var(--clr-text);
+  padding-left: 1.3em;
+}
+
+/* Активная опция — выбранная */
+.optionActive {
+  color: var(--clr-blue);
+  font-weight: 600;
+  background-color: rgba(74, 144, 217, 0.05);
+}
+
+/* Галочка у выбранной опции */
+.check {
+  color: var(--clr-gold);
+  font-weight: 700;
+  font-size: 0.9em;
+}

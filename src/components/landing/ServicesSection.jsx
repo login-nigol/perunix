@@ -3,7 +3,7 @@
 /* 6 карточек услуг — кликабельны, открывают модалку          */
 /* При выборе услуги — сохраняем в глобальный контекст        */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useService } from '../../context/ServiceContext'
 /* Импорты хуков */
@@ -153,6 +153,19 @@ function ServicesSection() {
     const handleRequest = (service, answers) => {
         setSelectedService({ ...service, answers })
     }
+
+    useEffect(() => {
+        if (activeService) {
+            /* Блокируем скролл страницы когда модалка открыта */
+            document.body.style.overflow = 'hidden'
+        } else {
+            /* Возвращаем скролл когда модалка закрыта */
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [activeService])
 
     return (
         <section className={styles.services} id="services">

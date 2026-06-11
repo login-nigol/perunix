@@ -6,10 +6,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 /* Импорты хуков */
-import { useSound }   from '../../hooks/useSound'
+import { useSound } from '../../hooks/useSound'
 import { useVibrate } from '../../hooks/useVibrate'
 
 import styles from './ServiceModal.module.css'
+/* Импорт кастомного селекта */
+import CustomSelect from '../ui/CustomSelect'
 
 function ServiceModal({ service, onClose, onRequest }) {
 
@@ -82,17 +84,15 @@ function ServiceModal({ service, onClose, onRequest }) {
                     <h4 className={styles.questionsTitle}>Ein paar Fragen:</h4>
                     {service.questions.map(q => (
                         <div key={q.id} className={styles.questionField}>
+                            {/* Лейбл вопроса */}
                             <label className={styles.questionLabel}>{q.label}</label>
-                            <select
-                                className={styles.questionSelect}
+                            {/* Кастомный дропдаун вместо стандартного select */}
+                            <CustomSelect
+                                options={q.options}
                                 value={answers[q.id] || ''}
-                                onChange={e => handleAnswer(q.id, e.target.value)}
-                            >
-                                <option value="">Bitte wählen...</option>
-                                {q.options.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
+                                onChange={(value) => handleAnswer(q.id, value)}
+                                placeholder="Bitte wählen..."
+                            />
                         </div>
                     ))}
                 </div>

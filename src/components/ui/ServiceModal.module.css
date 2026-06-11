@@ -7,13 +7,12 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.3em);
-  z-index: 200;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding: 0.5em;
   padding-top: 5em;
-
+  z-index: 1000;  
 }
 
 /* Модалка */
@@ -30,6 +29,7 @@
   flex-direction: column;
   gap: 1.2em;
   box-shadow: 0 1em 4em rgba(0, 0, 0, 0.2);
+  z-index: 1001;
 }
 
 /* Шапка модалки */
@@ -49,7 +49,7 @@
 .modalTitle {
   font-size: 1.3em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-blue);
 }
 
 /* Короткое описание */
@@ -62,8 +62,8 @@
 /* Кнопка закрытия */
 .closeBtn {
   margin-left: auto;
-  font-size: 1.4em;
-  color: var(--clr-muted);
+  font-size: 1.6em;
+  color: var(--clr-gold);
   flex-shrink: 0;
   transition: var(--transition);
 }
@@ -90,7 +90,7 @@
   text-align: center;
   font-size: 1.1em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-blue);
   margin-bottom: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -128,7 +128,7 @@
 .questionsTitle {
   font-size: 1.1em;
   font-weight: 700;
-  color: var(--clr-text);
+  color: var(--clr-blue);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

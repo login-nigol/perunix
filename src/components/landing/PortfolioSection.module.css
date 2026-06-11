@@ -1,9 +1,9 @@
 /* ===================== PORTFOLIO SECTION ===================== */
 
 .portfolio {
-  padding: 3em 0;
   position: relative;
-  z-index: 1;
+  padding: 3em 0;
+  /* z-index: 1; */
 }
 
 .container {
