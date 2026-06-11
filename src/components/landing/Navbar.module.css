@@ -99,6 +99,39 @@
   width: 100%;
 }
 
+/* ===================== КНОПКА ПОДЕЛИТЬСЯ ===================== */
+.shareBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--clr-blue);
+  padding: 0.9em 0;
+  border-bottom: 0.05em solid var(--clr-blue);
+  transition: var(--transition);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.shareBtn:hover {
+  color: var(--clr-blue-dark);
+  padding-left: 0.5em;
+}
+
+/* SVG иконка поделиться */
+.shareIcon {
+  width: 1.2em;
+  height: 1.2em;
+  fill: var(--clr-blue);
+  flex-shrink: 0;
+}
+
 /* ===================== CTA КНОПКА ===================== */
 .cta {
   font-size: 1.1em;

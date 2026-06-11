@@ -52,6 +52,19 @@ function Navbar() {
     //     return () => window.removeEventListener('resize', updateHeight)
     // }, [])
 
+    /* Поделиться приложением через Web Share API */
+    const handleShare = async () => {
+        playClick()
+        vibrateClick()
+        if (navigator.share) {
+            await navigator.share({
+                title: 'PERUNIX — Premium Web Development',
+                text: 'Профессиональная веб-разработка в Регенсбурге',
+                url: 'https://perunix-web.de',
+            })
+        }
+    }
+
     /* Закрываем меню при клике на ссылку */
     const handleLinkClick = () => {
         playClick()
@@ -172,6 +185,14 @@ function Navbar() {
                             </a>
                         ))
                         }
+
+                        {/* Кнопка поделиться */}
+                        <button className={styles.shareBtn} onClick={handleShare}>
+                            <svg viewBox="0 0 32 32" className={styles.shareIcon}>
+                                <path d="M27 22c-1.411 0-2.685 0.586-3.594 1.526l-13.469-6.734c0.041-0.258 0.063-0.522 0.063-0.791s-0.022-0.534-0.063-0.791l13.469-6.734c0.909 0.94 2.183 1.526 3.594 1.526 2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5c0 0.269 0.022 0.534 0.063 0.791l-13.469 6.734c-0.909-0.94-2.183-1.526-3.594-1.526-2.761 0-5 2.239-5 5s2.239 5 5 5c1.411 0 2.685-0.586 3.594-1.526l13.469 6.734c-0.041 0.258-0.063 0.522-0.063 0.791 0 2.761 2.239 5 5 5s5-2.239 5-5c0-2.761-2.239-5-5-5z" />
+                            </svg>
+                            Seite teilen
+                        </button>
 
                         {/* CTA в мобильном меню */}
 
