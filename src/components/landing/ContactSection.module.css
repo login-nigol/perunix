@@ -11,7 +11,7 @@
 .container {
   max-width: 75em;
   margin: 0 auto;
-  padding: 0 1.5em;
+  padding: 0 0.5em;
 }
 
 /* ===================== ЗАГОЛОВОК ===================== */
@@ -31,7 +31,7 @@
   color: var(--clr-muted);
   text-align: center;
   max-width: 36em;
-  margin: 0 auto 3em;
+  margin: 0 auto 2em;
   line-height: 1.8;
 }
 
@@ -46,9 +46,9 @@
 /* ===================== ФОРМА ===================== */
 .formWrapper {
   background-color: var(--clr-surface);
-  border: 0.05em solid var(--clr-border);
+  border: 0.05em solid var(--clr-blue);
   border-radius: var(--radius-card);
-  padding: 2em;
+  padding: 1em;
 }
 
 .form {
@@ -66,8 +66,8 @@
 
 /* Лейбл */
 .label {
-  font-size: 1em;
-  color: var(--clr-muted);
+  font-size: 1.1em;
+  color: var(--clr-gold);
   font-weight: 500;
 }
 
@@ -87,8 +87,8 @@
   border-radius: var(--radius-btn);
   color: var(--clr-text);
   font-family: inherit;
-  font-size: 1em;
-  padding: 0.8em 1em;
+  font-size: 1.1em;
+  padding: 0.4em 1em;
   outline: none;
   transition: var(--transition);
   width: 100%;
@@ -106,13 +106,13 @@
   opacity: 0.5;
 }
 
-.select {
+/* .select {
   appearance: none;
   cursor: pointer;
-}
+} */
 
 .textarea {
-  resize: vertical;
+  resize: none;
   min-height: 7em;
 }
 
@@ -120,7 +120,7 @@
 .submitBtn {
   font-size: 1.1em;
   font-weight: 700;
-  padding: 0.8em;
+  padding: 0.4em;
   border-radius: var(--radius-btn);
   background-color: var(--clr-gold);
   color: #fff;
@@ -167,7 +167,7 @@
 .infoWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .infoCard {
@@ -197,14 +197,14 @@
 }
 
 .infoLabel {
-  font-size: 0.8em;
-  color: var(--clr-muted);
+  font-size: 0.9em;
+  color: var(--clr-blue);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .infoValue {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-text);
   font-weight: 500;
 }
@@ -223,7 +223,7 @@
 }
 
 .whatsappText {
-  font-size: 1em;
+  font-size: 1.1em;
   color: var(--clr-muted);
 }
 

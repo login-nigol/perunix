@@ -35,7 +35,7 @@ function LandingPage() {
                 <PortfolioSection />
                 <TechSection />
                 <PricingSection />
-                {/* <ContactSection /> */}
+                <ContactSection />
             </main>
 
             {/* Подвал */}

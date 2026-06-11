@@ -8,13 +8,15 @@ import { motion } from 'framer-motion'
 import { useService } from '../../context/ServiceContext'
 import { useSound } from '../../hooks/useSound'
 import { useVibrate } from '../../hooks/useVibrate'
+
 import styles from './ContactSection.module.css'
+import CustomSelect from '../ui/CustomSelect'
 
 /* Контактные данные */
 const CONTACT_INFO = [
-    { id: 1, icon: '📍', label: 'Adresse', value: 'Regensburg, Bayern' },
-    { id: 2, icon: '✉️', label: 'E-Mail', value: 'info@perunix-web.de' },
-    { id: 3, icon: '🕐', label: 'Öffnungszeiten', value: 'Mo–Fr: 9:00 – 18:00 Uhr' },
+    // { id: 1, icon: '📍', label: 'Adresse', value: 'Regensburg, Bayern' },
+    { id: 2, icon: '✉️', label: 'E-Mail', value: 'hello@perunix-web.de' },
+    { id: 3, icon: '🕐', label: 'Öffnungszeiten', value: '24/7 verfügbar' },
     { id: 4, icon: '⚡', label: 'Antwortzeit', value: 'Innerhalb von 24 Stunden' },
 ]
 
@@ -65,7 +67,7 @@ function ContactSection() {
             `Nachricht: ${form.message}`
         )
 
-        window.location.href = `mailto:info@perunix-web.de?subject=${subject}&body=${body}`
+        window.location.href = `mailto:hello@perunix-web.de?subject=${subject}&body=${body}`
 
         /* Показываем сообщение об успехе */
         setSent(true)
@@ -110,8 +112,8 @@ function ContactSection() {
                     {/* Левая колонка — форма */}
                     <motion.div
                         className={styles.formWrapper}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
@@ -167,47 +169,44 @@ function ContactSection() {
                                 <div className={styles.field}>
                                     <label className={styles.label} htmlFor="service">
                                         Gewünschte Leistung
-                                        {/* Индикатор что поле заполнено автоматически */}
                                         {selectedService && (
                                             <span className={styles.autoFilled}> ✓ ausgewählt</span>
                                         )}
                                     </label>
-                                    <select
-                                        className={styles.select}
-                                        id="service" name="service"
+                                    <CustomSelect
+                                        options={[
+                                            'Starter — ab 399€',
+                                            'Business — ab 899€',
+                                            'Premium — ab 2.499€',
+                                            'Werbeseiten',
+                                            'Web-Apps',
+                                            'Animierte Seiten',
+                                            'Online-Shop & Marktplatz',
+                                            'Formulare & Umfragen',
+                                            'Backend & API',
+                                            'Sonstiges',
+                                        ]}
                                         value={form.service}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="">Bitte wählen...</option>
-                                        <option value="Starter">Starter — ab 799€</option>
-                                        <option value="Business">Business — ab 1.999€</option>
-                                        <option value="Premium">Premium — ab 4.999€</option>
-                                        <option value="Werbeseiten">Werbeseiten</option>
-                                        <option value="Web-Apps">Web-Apps</option>
-                                        <option value="Animierte Seiten">Animierte Seiten</option>
-                                        <option value="Online-Shop">Online-Shop & Marktplatz</option>
-                                        <option value="Formulare">Formulare & Umfragen</option>
-                                        <option value="Backend">Backend & API</option>
-                                        <option value="Sonstiges">Sonstiges</option>
-                                    </select>
+                                        onChange={(value) => setForm(prev => ({ ...prev, service: value }))}
+                                        placeholder="Bitte wählen..."
+                                    />
                                 </div>
 
                                 {/* Бюджет */}
                                 <div className={styles.field}>
                                     <label className={styles.label} htmlFor="budget">Budget</label>
-                                    <select
-                                        className={styles.select}
-                                        id="budget" name="budget"
+                                    <CustomSelect
+                                        options={[
+                                            'bis 500€',
+                                            '500–1.000€',
+                                            '1.000–3.000€',
+                                            'über 3.000€',
+                                            'Noch offen',
+                                        ]}
                                         value={form.budget}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="">Bitte wählen...</option>
-                                        <option value="bis 1.000€">bis 1.000€</option>
-                                        <option value="1.000–3.000€">1.000–3.000€</option>
-                                        <option value="3.000–6.000€">3.000–6.000€</option>
-                                        <option value="über 6.000€">über 6.000€</option>
-                                        <option value="Noch offen">Noch offen</option>
-                                    </select>
+                                        onChange={(value) => setForm(prev => ({ ...prev, budget: value }))}
+                                        placeholder="Bitte wählen..."
+                                    />
                                 </div>
 
                                 {/* Сообщение */}
@@ -235,8 +234,8 @@ function ContactSection() {
                     {/* Правая колонка — контакты */}
                     <motion.div
                         className={styles.infoWrapper}
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
