@@ -22,31 +22,32 @@
 /* Кнопки в ряд */
 .buttons {
   display: flex;
-  gap: 1em;
+  gap: 3em;
   width: 100%;
+  justify-content: center;
 }
 
-/* Базовая кнопка */
+/* Круглая иконка */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
-  flex: 1;
-  font-size: 1em;
-  font-weight: 700;
-  padding: 0.8em 1em;
-  border-radius: var(--radius-btn);
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
   color: #fff;
   transition: var(--transition);
 }
 
+.btn:hover {
+  transform: translateY(-0.2em) scale(1.1);
+}
+
 /* SVG иконка */
 .icon {
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.5em;
+  height: 1.5em;
   fill: #fff;
-  flex-shrink: 0;
 }
 
 /* WhatsApp — зелёная */
