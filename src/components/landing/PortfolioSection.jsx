@@ -170,9 +170,9 @@ function PortfolioSection() {
     useEffect(() => {
         const init = setTimeout(() => moveTo(1, false), 100)
 
-        // autoTimer.current = setInterval(() => {
-        //     if (!isPaused.current) goNext()
-        // }, 2500)
+        autoTimer.current = setInterval(() => {
+            if (!isPaused.current) goNext()
+        }, 4500)
 
         return () => {
             clearInterval(autoTimer.current)
